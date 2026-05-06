@@ -1,0 +1,46 @@
+Cores : 
+env : 
+axios : npm install axios
+
+Build AI Medical Pre-Diagnosis Frontend
+We will build the frontend structure for a modern AI medical pre-diagnosis web application using React (Vite), TailwindCSS, and Framer Motion, focusing on a premium SaaS-level design inspired by Apple Health and Stripe.
+
+
+
+Proposed Changes
+Setup and Configuration
+* Create a new Vite + React project named frontend.
+* Install dependencies: tailwindcss, postcss, autoprefixer, framer-motion, lucide-react (for clean, modern icons), and react-router-dom (for routing between the 3 pages).
+* Configure Tailwind: Set up tailwind.config.js with custom theme settings (soft shadows, rounded borders, modern font, custom color palette including subtle blues).
+* Global CSS: Update src/index.css to include Tailwind directives and some global styling for a clean, modern look.
+Architecture & Components
+* [NEW] frontend/src/components/ui/Button.jsx
+A reusable, animated button component with different variants (primary, secondary, outline) styled for a premium SaaS feel.
+
+* [NEW] frontend/src/components/ui/Card.jsx
+A reusable card component with soft shadows and 2xl rounded corners.
+
+* [NEW] frontend/src/components/ui/Badge.jsx
+A small status/risk badge component.
+
+* [NEW] frontend/src/pages/Landing.jsx
+Clean hero section with a modern gradient background (subtle blue/white).
+"AI Health Pre-Diagnosis Assistant" title.
+"Start assessment" CTA button (uses Framer Motion for hover effects).
+* [NEW] frontend/src/pages/SymptomInput.jsx
+Symptom chips (clickable, togglable state).
+Intensity slider (1-10).
+Duration input. 
+Optional textarea for additional context.
+"Analyze" button to mock submission.
+* [NEW] frontend/src/pages/Results.jsx
+Risk level badge (e.g., Medium Risk).
+Cards displaying possible conditions with percentage likelihoods.
+Advice list.
+Doctor recommendation banner.
+* [MODIFY] frontend/src/App.jsx
+Set up react-router-dom to route between /, /symptoms, and /results, and include a shared Layout or Navigation header.
+
+Run npm install and build the application to ensure there are no syntax or configuration errors.
+Manual Verification
+We will start the Vite development server (npm run dev) so you can preview the pages, check the responsiveness (mobile-first), and verify the smooth animations and SaaS-level aesthetic.
