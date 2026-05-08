@@ -13,7 +13,7 @@ A professional, SaaS-style AI-powered web application designed to help users per
 ---
 
 ## 🚀 Demo
-*(Insert Demo Link or GIF here)*
+![Demo](./screenshots/demo.gif)
 
 ---
 
@@ -150,7 +150,20 @@ SECRET_KEY=your_django_secret_key
 ---
 
 ## 📸 Screenshots
-*(Insert Screenshots here)*
+### 🏠 Landing Page
+<p align="center">
+  <img src="./screenshots/LandingPage.png" width="900"/>
+</p>
+### 🏠 Symptom Analysis Page
+<p align="center">
+  <img src="./screenshots/SymptomInput.png" width="900"/>
+</p>
+### 🏠 Result Page
+<p align="center">
+  <img src="./screenshots/ResultPage.png" width="900"/>
+</p>
+
+
 
 ---
 
@@ -170,9 +183,8 @@ This project is an AI-driven tool for information purposes only. The information
 ---
 
 ## 👨‍💻 Author
-**[Your Name/Username]**
-- GitHub: [@yourusername](https://github.com/yourusername)
-- LinkedIn: [Your Profile](https://linkedin.com/in/yourprofile)
+**[Eya Ammar]**
+- LinkedIn: [Your Profile](https://www.linkedin.com/in/eya-ammar-0932b12b2/)
 
 
 ## 🐳 Run with Docker
