@@ -22,8 +22,8 @@ def analyze_with_gemini(data: dict) -> dict:
 
     try:
         genai.configure(api_key=api_key)
-        # Using gemini-1.5-flash for faster response and cost-efficiency
-        model = genai.GenerativeModel('gemini-1.5-flash')
+        # Using gemini-flash-latest as it is confirmed to have quota and work in this environment.
+        model = genai.GenerativeModel('gemini-flash-latest')
 
         symptoms = data.get("symptoms", [])
         severity = data.get("severity", "unknown")

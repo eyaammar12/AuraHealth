@@ -24,9 +24,3 @@ class AnalyzeInputSerializer(serializers.Serializer):
         max_length=1000,
         help_text="Optional additional notes from the user."
     )
-    ai_mode = serializers.ChoiceField(
-        choices=["mock", "gemini"],
-        default="mock",
-        required=False,
-        help_text="The AI provider mode to use for analysis."
-    )

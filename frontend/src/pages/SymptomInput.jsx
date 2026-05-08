@@ -5,7 +5,6 @@ import { Button } from "../components/ui/Button";
 import { Card } from "../components/ui/Card";
 import { ChevronLeft, Info, Loader2 } from "lucide-react";
 import { analyzeSymptoms } from "../services/api";
-import { ModeToggle } from "../components/ui/ModeToggle";
 
 const commonSymptoms = [
   "Headache", "Fever", "Cough", "Fatigue", "Nausea", 
@@ -20,16 +19,6 @@ export default function SymptomInput() {
   const [notes, setNotes] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  
-  // AI Mode state with persistence
-  const [aiMode, setAiMode] = useState(() => {
-    return localStorage.getItem("ai_mode") || "mock";
-  });
-
-  const handleModeChange = (newMode) => {
-    setAiMode(newMode);
-    localStorage.setItem("ai_mode", newMode);
-  };
 
   const toggleSymptom = (symptom) => {
     if (selectedSymptoms.includes(symptom)) {
@@ -47,8 +36,7 @@ export default function SymptomInput() {
         symptoms: selectedSymptoms,
         severity: intensity,
         duration: duration,
-        notes: notes,
-        ai_mode: aiMode
+        notes: notes
       });
       
       // Navigate to results page and pass the data via state
@@ -73,8 +61,6 @@ export default function SymptomInput() {
             <ChevronLeft size={20} className="mr-1" />
             Back
           </button>
-          
-          <ModeToggle mode={aiMode} setMode={handleModeChange} />
         </div>
 
         <div className="mb-8">

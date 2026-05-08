@@ -24,7 +24,7 @@ class AnalyzeAPIView(APIView):
             )
             
             # 2. AI Analysis
-            ai_service = AIService(override_mode=data.get('ai_mode'))
+            ai_service = AIService()
             analysis_result = ai_service.get_analysis(
                 symptoms=data['symptoms'],
                 severity=data['severity'],

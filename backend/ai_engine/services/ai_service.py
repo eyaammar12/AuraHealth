@@ -1,6 +1,4 @@
-import os
 import logging
-from ai_engine.providers.mock_provider import MockProvider
 from ai_engine.providers.gemini_provider import GeminiProvider
 
 # Set up logging
@@ -9,18 +7,13 @@ logger = logging.getLogger(__name__)
 class AIService:
     """
     Orchestrator for AI Analysis. 
-    Switches between different AI providers based on the AI_MODE environment variable.
+    Uses GeminiProvider for all analyses.
     """
     
-    def __init__(self, override_mode=None):
-        # Use override_mode if provided (from API request), otherwise fallback to env variable
-        self.mode = (override_mode or os.getenv("AI_MODE", "mock")).lower()
-        logger.info(f"Initializing AIService with mode: {self.mode}")
-        
-        if self.mode == "gemini":
-            self.provider = GeminiProvider()
-        else:
-            self.provider = MockProvider()
+    def __init__(self):
+        logger.info("Initializing AIService with Gemini provider")
+        self.mode = "gemini"
+        self.provider = GeminiProvider()
 
     def get_analysis(self, symptoms: list, severity: int, duration: int, notes: str = "") -> dict:
         """
