@@ -30,51 +30,33 @@ def analyze_with_gemini(data: dict) -> dict:
         duration = data.get("duration", "unknown")
         notes = data.get("notes", "")
 
-        # Structured Prompt
+        # Structured Prompt - Focused on fast JSON generation
         prompt = f"""
-        Role: You are a highly accurate medical triage AI assistant.
-        Task: Analyze the following patient symptoms and provide preliminary information.
+        Role: Medical triage assistant.
+        Input: Symptoms: {', '.join(symptoms) if isinstance(symptoms, list) else symptoms}, Severity: {severity}/10, Duration: {duration} days, Notes: {notes}
         
-        Patient Input:
-        - Symptoms: {', '.join(symptoms) if isinstance(symptoms, list) else symptoms}
-        - Severity (1-10): {severity}
-        - Duration: {duration} days
-        - Patient Notes: {notes}
-
-        Constraints & Safety Rules:
-        1. STRICTLY NO DIAGNOSIS. Use phrases like "Possible conditions to discuss with a doctor".
-        2. NO MEDICATION RECOMMENDATIONS. Do not suggest drugs or dosages.
-        3. ADVICE: Focus on self-care (rest, hydration) and when to seek professional help.
-        4. RISK ASSESSMENT: 
-           - 'low': Minor symptoms, can wait.
-           - 'medium': Persistent or uncomfortable symptoms, see a doctor soon.
-           - 'high': Severe symptoms, potential emergency, seek immediate care.
-        5. DOCTOR RECOMMENDATION: Boolean based on the risk level.
-
-        Output Format:
-        You must return a valid JSON object only. Do not include markdown formatting or any other text.
-        Structure:
+        Rules: No diagnosis, no medication.
+        Risk levels: 'low', 'medium', 'high'.
+        
+        Output exact JSON structure:
         {{
-          "possible_conditions": ["Condition A", "Condition B", "Condition C"],
-          "risk_level": "low" | "medium" | "high",
-          "advice": ["Step 1", "Step 2", "Step 3"],
-          "doctor_recommendation": true | false,
-          "disclaimer": "This is not medical advice. Consult a healthcare professional for diagnosis and treatment."
+          "possible_conditions": ["..."],
+          "risk_level": "...",
+          "advice": ["..."],
+          "doctor_recommendation": boolean,
+          "disclaimer": "..."
         }}
         """
 
-        response = model.generate_content(prompt)
+        # Optimized call with JSON mode
+        response = model.generate_content(
+            prompt,
+            generation_config={"response_mime_type": "application/json"}
+        )
         raw_text = response.text.strip()
         
-        # Robust JSON cleaning (Gemini often wraps in code blocks)
-        clean_text = raw_text
-        if "```json" in raw_text:
-            clean_text = raw_text.split("```json")[1].split("```")[0].strip()
-        elif "```" in raw_text:
-            clean_text = raw_text.split("```")[1].split("```")[0].strip()
-
         # Parse JSON
-        result = json.loads(clean_text)
+        result = json.loads(raw_text)
 
         # Schema Validation
         required_keys = ["possible_conditions", "risk_level", "advice", "doctor_recommendation", "disclaimer"]
