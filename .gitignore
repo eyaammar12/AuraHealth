@@ -1,0 +1,21 @@
+# Environments
+.env
+.venv/
+env/
+venv/
+ENV/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+db.sqlite3
+
+# Node
+node_modules/
+dist/
+.eslintcache
+
+# AI Assistant
+test_gemini.py
+notes.txt
