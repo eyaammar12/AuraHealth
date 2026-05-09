@@ -4,8 +4,12 @@
 [![React](https://img.shields.io/badge/Frontend-React-blue.svg)](https://reactjs.org/)
 [![Django](https://img.shields.io/badge/Backend-Django-green.svg)](https://www.djangoproject.com/)
 [![Gemini AI](https://img.shields.io/badge/AI-Google%20Gemini-orange.svg)](https://ai.google.dev/)
+[![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen.svg)](https://aura-health-gyd6.vercel.app/)
 
 A professional, SaaS-style AI-powered web application designed to help users perform a preliminary health assessment. By analyzing symptoms, intensity, and duration, the assistant provides possible conditions, risk levels, and actionable advice.
+
+> [!TIP]
+> **Live Application**: [https://aura-health-gyd6.vercel.app/](https://aura-health-gyd6.vercel.app/)
 
 > [!IMPORTANT]
 > **Medical Disclaimer:** This application is for **educational purposes only**. It does NOT provide clinical diagnoses or replace professional medical advice, diagnosis, or treatment. Always seek the advice of your physician or other qualified health provider.
@@ -13,6 +17,8 @@ A professional, SaaS-style AI-powered web application designed to help users per
 ---
 
 ## 🚀 Demo
+**Explore the live app here: [https://aura-health-gyd6.vercel.app/](https://aura-health-gyd6.vercel.app/)**
+
 ![Demo](./screenshots/demo.gif)
 
 ---
