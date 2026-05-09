@@ -30,7 +30,7 @@ SECRET_KEY = 'django-insecure-i5rauip&k*l2+%@mgn9ce^3cj&a4f@8t!quepx^dz80f$ziq46
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["aurahealth-v8hu.onrender.com"]
 
 
 # Application definition
