@@ -1,12 +1,17 @@
 import os
 import sys
 
-# Add the backend directory to the Python path so 'core' can be found
-backend_path = os.path.join(os.path.dirname(__file__), 'backend')
-if backend_path not in sys.path:
-    sys.path.append(backend_path)
+# Get the absolute path of the backend directory
+base_dir = os.path.dirname(os.path.abspath(__file__))
+backend_path = os.path.join(base_dir, 'backend')
+
+# Add it to sys.path if it exists (for root-level execution)
+if os.path.exists(backend_path):
+    sys.path.insert(0, backend_path)
 
 # Import the Django WSGI application
-from core.wsgi import application as app
-
-# This 'app' variable is what gunicorn app:app will look for
+try:
+    from core.wsgi import application as app
+except ImportError:
+    # Fallback for different directory structures
+    from core.wsgi import application as app
