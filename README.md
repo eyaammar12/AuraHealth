@@ -36,7 +36,6 @@ This project was created to explore the intersection between artificial intellig
 - 📋 **Condition Suggestions**: Provides the top 3 most likely conditions based on input.
 - 💡 **Recommended Actions**: Tailored advice for each assessment.
 - 🚨 **Emergency Alerts**: Immediate recommendations for professional medical consultation.
-- 🔄 **AI Provider Toggle**: Seamless switch system between **Mock Mode** (for development) and **Gemini API**.
 - 💎 **Modern SaaS UI**: Built with a clean, responsive aesthetic using TailwindCSS and Framer Motion.
 
 ---
@@ -66,8 +65,8 @@ The project follows a modular, scalable architecture to ensure separation of con
   - `api/`: Handles REST endpoints and request/response flow.
   - `ai_engine/`: Manages AI logic and provider abstractions.
   - `triage/`: Contains rules and logic for risk assessment.
-- **Provider Factory Pattern**: A clean abstraction layer allowing the system to switch between `MockProvider` and `GeminiProvider` without changing business logic.
-- **Service Layer**: Business logic is decoupled from views to ensure maintainability.
+**AI Service Abstraction**: A clean service layer that encapsulates the Google Gemini AI (using `gemini-flash-latest`), ensuring high-speed and structured medical analysis.
+- **Service Layer**: Business logic is decoupled from views to ensure maintainability and safety enforcement.
 - **Serializers**: Strict input validation and structured data formatting using DRF.
 
 ---
