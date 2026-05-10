@@ -15,6 +15,10 @@ A professional, SaaS-style AI-powered web application designed to help users per
 > **Medical Disclaimer:** This application is for **educational purposes only**. It does NOT provide clinical diagnoses or replace professional medical advice, diagnosis, or treatment. Always seek the advice of your physician or other qualified health provider.
 
 ---
+## 🎯 Project Motivation
+
+This project was created to explore the intersection between artificial intelligence and healthcare by building a modern, scalable, and user-friendly medical pre-assessment platform.
+---
 
 ## 🚀 Demo
 **Explore the live app here: [https://aura-health-gyd6.vercel.app/](https://aura-health-gyd6.vercel.app/)**
@@ -72,7 +76,7 @@ The project follows a modular, scalable architecture to ensure separation of con
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/yourusername/ai-med-assistant.git
+git clone https://github.com/eyaammar12/ai-med-assistant.git
 cd ai-med-assistant
 ```
 
@@ -188,12 +192,12 @@ This project is an AI-driven tool for information purposes only. The information
 
 ---
 
-## 👨‍💻 Author
-**[Eya Ammar]**
-- LinkedIn: [Your Profile](https://www.linkedin.com/in/eya-ammar-0932b12b2/)
-
-
 ## 🐳 Run with Docker
 ```bash
 docker-compose up --build
 ```
+---
+
+## 👨‍💻 Author
+**[Eya Ammar]**
+- LinkedIn: [EyaAmmar](https://www.linkedin.com/in/eya-ammar-0932b12b2/)
