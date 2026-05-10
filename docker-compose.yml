@@ -1,0 +1,50 @@
+services:
+  # Backend Service: Django + DRF
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: aura-backend
+    # Volume mapping for hot reload: syncs local backend folder with container /app folder
+    volumes:
+      - ./backend:/app
+    ports:
+      - "8000:8000"
+    # Load environment variables from backend/.env
+    env_file:
+      - ./backend/.env
+    # Allows for interactive debugging (e.g., using pdb)
+    stdin_open: true
+    tty: true
+    networks:
+      - aura-network
+
+  # Frontend Service: React + Vite + TailwindCSS
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: aura-frontend
+    # Volume mapping for hot reload
+    volumes:
+      - ./frontend:/app
+      # Named volume ensures isolation from host node_modules
+      - frontend_node_modules:/app/node_modules
+    ports:
+      - "5173:5173"
+    # Load environment variables from frontend/.env
+    env_file:
+      - ./frontend/.env
+    depends_on:
+      - backend
+    # Allows for interactive shells if needed
+    stdin_open: true
+    tty: true
+    networks:
+      - aura-network
+volumes:
+  frontend_node_modules:
+
+networks:
+  aura-network:
+    driver: bridge
